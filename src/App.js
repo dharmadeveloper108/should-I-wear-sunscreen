@@ -1,26 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import './style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './Navbar.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Container extends React.Component {
+    constructor(props) {    
+        super(props);    
+        this.state = {      
+            value: null,    
+        };  
+    }
+    render() {
+           return(
+            <div>
+                <Navbar/>
+                <div class="container">
+                    <Row/>
+                </div>
+            </div>
+           );
+    }
 }
 
-export default App;
+class Row extends React.Component {
+    renderColumn(x) {
+        return(
+            <Column/>
+        );
+    }
+    render() {
+        return(
+            <div class="row">
+                {this.renderColumn()}
+                {this.renderColumn()}
+            </div>
+        );
+    }
+}
+
+class Column extends React.Component {
+    render() {
+        return(
+            <div class="col">
+                <h1>Hello world!</h1>
+            </div>
+        );
+    }
+}
+
+export default Container;
