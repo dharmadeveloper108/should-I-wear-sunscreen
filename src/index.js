@@ -11,7 +11,7 @@ const App = () => {
 }
 
 ReactDOM.render(
-    <Container/>,
+    App(),
     document.getElementById('root')
 );
 
