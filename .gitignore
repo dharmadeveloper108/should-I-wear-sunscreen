@@ -26,3 +26,5 @@ node_modules
 kuchika.*
 kuchika.js
 src/kuchika.js
+./src/kuchika.js
+./src/kuchika.*

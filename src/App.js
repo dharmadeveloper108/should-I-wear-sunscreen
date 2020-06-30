@@ -19,19 +19,18 @@ class Container extends React.Component {
             alert("latitude is: " + position.coords.latitude + "\n" 
                     + "longitude is: " + position.coords.longitude);
             
-            const temperature_url = `http://api.openweathermap.org/data/2.5/uvi/forecast?appid=${apiConfig.weathe_api_key}&lat={lat}&lon={lon}&cnt=1`;
-            const uvindex_url = `http://api.openweathermap.org/data/2.5/uvi/forecast?appid=${apiConfig.weathe_api_key}&lat={lat}&lon={lon}&cnt=1`;
-            const humidity_url = `http://api.openweathermap.org/data/2.5/uvi/forecast?appid=${apiConfig.weathe_api_key}&lat={lat}&lon={lon}&cnt=1`;
+            const currentweather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiConfig.weathe_api_key}&units=metric`;
+            const uvindex_url = `https://api.openweathermap.org/data/2.5/uvi/forecast?appid=${apiConfig.weathe_api_key}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&cnt=1`;
 
+            const getUVindex = () => {
+                fetch(uvindex_url)
+                .then(res => res.json())
+                .then(data => console.log("Data loaded", data.list))
+            }
         })
     }
 
-// getUVindex = () => {
 
-//     fetch(uvindex_url)
-//     .then(res => res.json())
-//     .then(data => console.log("Data loaded", data.list))
-// }
 
     render() {
 
