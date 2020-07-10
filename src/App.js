@@ -2,47 +2,59 @@ import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './Navbar.js';
-import apiConfig from './kuchika.js';
+import API_KEY from './kuchika.js';
+import WeatherData from './WeatherData.js';
 
 
 class Container extends React.Component {
 
-    constructor(props) {    
-        super(props);    
-        this.state = {      
-            value: null,    
-        };  
-    }
+    render() {
 
+        return(
+         <div>
+             <Navbar/>
+             <div className="container">
+                 <Row/>
+                 <WeatherData weatherData={this.state.weatherData}/>
+             </div>
+         </div>
+        );
+ }
+
+     state = {      
+        weatherData: []   
+    }; 
+    // constructor(props) {    
+    //     super(props);    
+         
+    // }
+
+    
+   
     componentDidMount() {
         navigator.geolocation.getCurrentPosition( (position) => {
-            alert("latitude is: " + position.coords.latitude + "\n" 
-                    + "longitude is: " + position.coords.longitude);
-            
-            const currentweather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiConfig.weathe_api_key}&units=metric`;
-            const uvindex_url = `https://api.openweathermap.org/data/2.5/uvi/forecast?appid=${apiConfig.weathe_api_key}&lat=${position.coords.latitude}&lon=${position.coords.longitude}&cnt=1`;
+            // alert("latitude is: " + position.coords.latitude + "\n" 
+            //         + "longitude is: " + position.coords.longitude);
 
-            const getUVindex = () => {
+            const lat = position.coords.latitude.toFixed(2);
+            const long = position.coords.longitude.toFixed(2);
+            
+            //const currentweather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${API_KEY}&units=metric`;
+            const uvindex_url = `http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${lat}&lon=${long}`;
+
+            //const getUVindex = () => {
                 fetch(uvindex_url)
                 .then(res => res.json())
-                .then(data => console.log("Data loaded", data.list))
-            }
+                .then((data) => {
+                    this.setState({ weatherData: data })
+                })
+                .catch(console.log);
+            //}
+            
         })
     }
 
-
-
-    render() {
-
-           return(
-            <div>
-                <Navbar/>
-                <div className="container">
-                    <Row/>
-                </div>
-            </div>
-           );
-    }
+   
 }
 
 class Row extends React.Component {
@@ -55,7 +67,6 @@ class Row extends React.Component {
         return(
             <div className="row">
                 {this.renderColumn()}
-                {this.renderColumn()}
             </div>
         );
     }
@@ -65,7 +76,7 @@ class Column extends React.Component {
     render() {
         return(
             <div className="col">
-                <h1>Hello world!</h1>
+                
             </div>
         );
     }
