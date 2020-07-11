@@ -8,6 +8,16 @@ import WeatherData from './WeatherData.js';
 
 class Container extends React.Component {
 
+    // constructor(props) {    
+    //     super(props);    
+    //     this.state = {      
+    //         value: null,    
+    //     };  
+    // }
+    state = {      
+        weatherData: []   
+    }; 
+    
     render() {
 
         return(
@@ -19,23 +29,11 @@ class Container extends React.Component {
              </div>
          </div>
         );
- }
+    }
 
-     state = {      
-        weatherData: []   
-    }; 
-    // constructor(props) {    
-    //     super(props);    
-         
-    // }
-
-    
-   
     componentDidMount() {
         navigator.geolocation.getCurrentPosition( (position) => {
-            // alert("latitude is: " + position.coords.latitude + "\n" 
-            //         + "longitude is: " + position.coords.longitude);
-
+           
             const lat = position.coords.latitude.toFixed(2);
             const long = position.coords.longitude.toFixed(2);
             
@@ -44,7 +42,7 @@ class Container extends React.Component {
 
             //const getUVindex = () => {
                 fetch(uvindex_url)
-                .then(res => res.json())
+                .then(res => handleResponse(res))
                 .then((data) => {
                     this.setState({ weatherData: data })
                 })
@@ -82,5 +80,12 @@ class Column extends React.Component {
     }
 }
 
-
+function handleResponse(response) {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("Error: Location " + (response.statusText).toLowerCase());
+    }
+  }
+  
 export default Container;
