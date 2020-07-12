@@ -5,26 +5,18 @@ import Navbar from './Navbar.js';
 import API_KEY from './kuchika.js';
 import WeatherData from './WeatherData.js';
 
-
 class Container extends React.Component {
-
-    // constructor(props) {    
-    //     super(props);    
-    //     this.state = {      
-    //         value: null,    
-    //     };  
-    // }
+    
+ 
     state = {      
         weatherData: []   
     }; 
     
     render() {
-
         return(
          <div>
              <Navbar/>
              <div className="container">
-                 <Row/>
                  <WeatherData weatherData={this.state.weatherData}/>
              </div>
          </div>
@@ -44,39 +36,12 @@ class Container extends React.Component {
                 fetch(uvindex_url)
                 .then(res => handleResponse(res))
                 .then((data) => {
-                    this.setState({ weatherData: data })
+                    this.setState({ weatherData: data });
+                    setBg(data)
                 })
                 .catch(console.log);
             //}
-            
         })
-    }
-
-   
-}
-
-class Row extends React.Component {
-    renderColumn() {
-        return(
-            <Column/>
-        );
-    }
-    render() {
-        return(
-            <div className="row">
-                {this.renderColumn()}
-            </div>
-        );
-    }
-}
-
-class Column extends React.Component {
-    render() {
-        return(
-            <div className="col">
-                
-            </div>
-        );
     }
 }
 
@@ -87,5 +52,24 @@ function handleResponse(response) {
       throw new Error("Error: Location " + (response.statusText).toLowerCase());
     }
   }
+
+
+  function setBg(weatherData) {
+
+    const UV_level = weatherData.value;
+
+    if(UV_level< 2) {
+        document.getElementById('uvcard').style.backgroundColor = "green";
+    } else if(UV_level< 5) {
+        document.getElementById('uvcard').style.backgroundColor = "yellow";
+    } else if(UV_level< 7) {
+        document.getElementById('uvcard').style.backgroundColor = "orange";
+    } else if (UV_level< 10) {
+        document.getElementById('uvcard').style.backgroundColor = "red";
+    } else if (UV_level> 11) {
+        document.getElementById('uvcard').style.backgroundColor = "violet";
+    }
+  }
+    
   
 export default Container;
