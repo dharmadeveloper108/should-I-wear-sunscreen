@@ -1,0 +1,73 @@
+body, html {
+    background: #4b565f;
+}
+
+#root {
+    background: #4b565f;
+}
+
+
+h1 {
+    padding: 30px;
+    padding-bottom: 0px;
+    font-size: 3.5em !important;
+}
+
+h5 {
+    /*color: #323a40;*/
+    color: #ffffff;
+    width: 100%;
+    padding: 30px;
+    padding-bottom: 0px;
+    font-size: 2em !important;
+}
+
+h6 {
+    padding-bottom: 40px;
+    font-size: 1.2em !important;
+}
+
+.levelInd {
+    padding: 0px;
+    padding-bottom: 40px;;
+}
+
+.navbar-brand {
+    padding-left: 60px;
+    font-size: 2em !important;
+}
+
+.navbar-text {
+    padding-right: 60px !important;
+}
+
+#uvcard {
+    background: #667581;
+}
+
+#titles, #titles2 {
+    visibility: hidden;
+}
+
+.cover {
+    width: 151
+}
+
+.card-body, .card{
+    padding: 0px !important;
+}
+
+#memegif {
+    padding-right: 0px !important;
+    border-radius: 0px 3px 3px 0px;
+}
+
+@media screen and (max-width: 992px) {
+    #memegif {
+        border-radius: 0px 0px 3px 3px;
+    }
+}
+
+.col-md-12 {
+    padding-left: 0px !important;
+}

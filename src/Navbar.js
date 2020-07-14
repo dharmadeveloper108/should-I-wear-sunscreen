@@ -1,25 +1,30 @@
 import React from 'react';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { grey } from '@material-ui/core/colors';
+import Tooltip from '@material-ui/core/Tooltip';
+
 
 const Navbar = () => {
     return (            <div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">VATA WEATHER</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a className="navbar-brand">
+                    <WbSunnyIcon/> UV index
+                    </a>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Temperature </a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">UV Index</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Humidity</a>
-                    </li>
+                        <li className="nav-item">
+                           
+                        </li>
                     </ul>
                 </div>
+                <span class="navbar-text">
+                <a className="nav-link" href="https://github.com/dharmadeveloper108/weather-vata">
+                    <Tooltip title="GitHub Repo" aria-label="GitHub Repo">
+                    <GitHubIcon style={{ fontSize: 20, color: grey[600] }}/> 
+                    </Tooltip>
+                </a>
+                </span>
             </nav>
             </div>
         );
