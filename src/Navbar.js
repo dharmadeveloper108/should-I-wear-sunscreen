@@ -18,7 +18,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                <span class="navbar-text">
+                <span className="navbar-text">
                 <a className="nav-link" href="https://github.com/dharmadeveloper108/should-I-wear-sunscreen">
                     <Tooltip title="GitHub Repo" aria-label="GitHub Repo">
                     <GitHubIcon style={{ fontSize: 20, color: grey[600] }}/> 

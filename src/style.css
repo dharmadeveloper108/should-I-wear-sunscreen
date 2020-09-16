@@ -55,11 +55,17 @@ h6 {
 
 .card-body, .card{
     padding: 0px !important;
+    max-height: 500px;
+    overflow: hidden;
 }
 
 #memegif {
     padding-right: 0px !important;
     border-radius: 0px 3px 3px 0px;
+}
+
+#separator {
+    height: 50px;
 }
 
 @media screen and (max-width: 992px) {

@@ -9,9 +9,9 @@ const WeatherData = ({weatherData}) => {
           <center><h1>Should I wear sunscreen? </h1></center>
           <center><h6>- UV index 😎 today -</h6></center>
             <div className="card" id="uvcard">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-lg-6 col-md-12">
+              <div className="card-body">
+                <div className="row">
+                  <div className="col-lg-6 col-md-12">
                     <center>
                       <div id="separator"></div>
                         <h5 id="titles">
@@ -21,14 +21,14 @@ const WeatherData = ({weatherData}) => {
                           id="circularProg" 
                           style={{color: yellow[500], marginTop: 60}}
                           size={80} />
-                        <h5 class="levelInd" id="titles2">
+                        <h5 className="levelInd" id="titles2">
                           Level: <span id="lvl"></span>
                         </h5>
                       <p id="answer"> </p>
                     </center>
                   </div>
-                  <div class="col-lg-6 col-md-12">
-                    <img id="memegif" class="col-12" alt="gif"/>
+                  <div className="col-lg-6 col-md-12">
+                    <img id="memegif" className="col-12" alt="gif"/>
                   </div>
                 </div>
               </div>
