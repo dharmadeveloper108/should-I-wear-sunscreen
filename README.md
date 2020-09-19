@@ -1,7 +1,9 @@
 # UV Index React JS App 
 ### ☀️ Should I Wear Sunscreen?
 
-A simple App to get the UV index level in your location and figure out if you need to wear sunscreen to go outside. 😊
+A simple App to get the UV index level in your location and figure out if you need to wear sunscreen to go outside. 
+
+[DEMO](https://uvindexapp.web.app/)
 
 
 ### To run the App
